@@ -1,15 +1,19 @@
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { toast } from 'react-hot-toast';
 import css from "./SearchBar.module.css";
 import clsx from 'clsx';
 
-const SearchBar = ({ onSubmit }) => {
-  const [searchText, setSearchText] = useState('');
+interface Props {
+  onSubmit: (searchText: string) => void;
+}
 
-  const handleSubmit = (event) => {
+const SearchBar: React.FC<Props> = ({ onSubmit }) => {
+  const [searchText, setSearchText] = useState<string>('');
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (searchText.trim() === '') {
-      toast('You must enter text to search for images');
+      toast.error('You must enter text to search for images');
     } else {
       onSubmit(searchText);
       setSearchText('');
