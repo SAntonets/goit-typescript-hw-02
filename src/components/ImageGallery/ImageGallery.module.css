@@ -1,0 +1,9 @@
+.ImageGallery {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 20px;
+}

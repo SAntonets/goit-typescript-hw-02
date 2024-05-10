@@ -1,0 +1,6 @@
+.ImageCard {
+  height: 180px;
+  width: 240px;
+  overflow: hidden;
+  object-fit: cover;
+}
