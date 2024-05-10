@@ -12,20 +12,25 @@ import './App.css';
 import Modal from 'react-modal';
 
 function App() {
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [page, setPage] = useState(1);
-  const [searchWord, setSearchWord] = useState("");
-  const [totalPages, setTotalPages] = useState(0);
-  const [errorDownload, setErrorDownload] = useState(false);
-  const [modalImageId, setModalImageId] = useState(null);
-  const [modalIsOpen, setIsOpen] = useState(false);
+   
+  type Image = {
+
+  }
+
+  const [images, setImages] = useState<Image[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(1);
+  const [searchWord, setSearchWord] = useState<string>("");
+  const [totalPages, setTotalPages] = useState<number>(0);
+  const [errorDownload, setErrorDownload] = useState<boolean>(false);
+  const [modalImageId, setModalImageId] = useState<number | null>(null);
+  const [modalIsOpen, setIsOpen] = useState<boolean>(false);
 
   Modal.setAppElement('#root');
 
   useEffect(() => {
     fetchImages();
-  }, [page, searchWord]);
+   }, [page, searchWord]);
 
   const fetchImages = async () => {
     try {
