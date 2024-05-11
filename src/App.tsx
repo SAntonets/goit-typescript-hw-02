@@ -9,17 +9,11 @@ import Loader from './components/Loader/Loader';
 import ImageModal from './components/ImageModal/ImageModal';
 import searchImages from './components/API/API'; 
 import './App.css';
+import { Image } from './components/API/API';
 
 Modal.setAppElement('#root');
 
-interface Image {
-  id: number;
-  alt_description: string;
-  urls: {
-    small: string;
-    regular: string;
-  };
-}
+
 
 const App: React.FC = () => {
   const [images, setImages] = useState<Image[]>([]);
@@ -28,7 +22,7 @@ const App: React.FC = () => {
   const [searchWord, setSearchWord] = useState<string>('');
   const [totalPages, setTotalPages] = useState<number>(1);
   const [errorDownload, setErrorDownload] = useState<boolean>(false);
-  const [modalImageId, setModalImageId] = useState<number | null>(null);
+  const [modalImageId, setModalImageId] = useState<string | null>(null);
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
@@ -71,7 +65,7 @@ const App: React.FC = () => {
       setPage(prevPage => prevPage + 1);
   };
 
-  const openModal = (id: number) => {
+  const openModal = (id: string) => {
     setModalImageId(id);
     setIsOpen(true);
   };

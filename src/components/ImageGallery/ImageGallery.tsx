@@ -1,20 +1,12 @@
 import React, { forwardRef, useEffect, useRef } from 'react';
 import ImageCard from '../ImageCard/ImageCard';
 import css from "./ImageGallery.module.css";
-
-interface Image {
-  id: number;
-  urls: {
-    small: string;
-    regular: string;
-  },
-  alt_description: string,
-  }
+import { Image } from '../API/API';
 
 
 interface Props {
   images: Image[];
-  openModal: (id: number) => void;
+  openModal: (id: string) => void;
 }
 
 const ImageGallery = forwardRef<HTMLUListElement, Props>(({ images, openModal }, ref) => {

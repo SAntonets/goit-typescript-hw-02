@@ -1,17 +1,10 @@
 import React from 'react';
 import css from "./ImageCard.module.css";
-
-interface Image {
-  id: number;
-  urls: {
-    small: string;
-  };
-  alt_description: string;
-}
+import { Image } from '../API/API';
 
 interface Props {
   image: Image;
-  handleClick: (id: number) => void;
+  handleClick: (id: string) => void;
 }
 
 const ImageCard: React.FC<Props> = ({ image, handleClick }) => {

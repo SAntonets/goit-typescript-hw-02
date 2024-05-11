@@ -1,17 +1,10 @@
 import React from 'react';
 import Modal from 'react-modal';
-
-interface Image {
-  id: number;
-  urls: {
-    regular: string;
-  };
-  alt_description: string;
-}
+import { Image } from '../API/API';
 
 interface Props {
   images: Image[];
-  modalImageId: number | null;
+  modalImageId: string | null;
   closeModal: () => void;
   modalIsOpen: boolean;
 }
